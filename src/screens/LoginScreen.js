@@ -32,8 +32,6 @@ const TermsCheck = ({title}) => {
     <CheckBox
       containerStyle={styles.checkbox}
       title={title}
-      uncheckeIcon="square"
-      checkedIcon="check-square"
       checkedColor="purple"
       checked={state.checked}
       onPress={() => setState({checked: !state.checked})}
