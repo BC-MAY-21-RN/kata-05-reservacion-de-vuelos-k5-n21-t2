@@ -1,7 +1,42 @@
 import React, {useState} from 'react';
-import {StyleSheet, View, Text, Pressable, ScrollView} from 'react-native';
-import {Button, Input, CheckBox} from 'react-native-elements';
+import {
+  StyleSheet,
+  View,
+  Text,
+  Pressable,
+  ScrollView,
+  Modal,
+} from 'react-native';
+import {Input, CheckBox} from 'react-native-elements';
+import Icon from 'react-native-vector-icons/Ionicons';
 //import {styles} from './styles.js';
+
+const CustomModal = ({children, isVisible, setIsVisible}) => {
+  console.log(isVisible);
+  return (
+    <Modal
+      animationType="slide"
+      transparent={true}
+      visible={isVisible}
+      onRequestClose={() => {
+        //Alert.alert('Modal has been closed.');
+        setIsVisible(!isVisible);
+      }}>
+      {children}
+    </Modal>
+  );
+};
+
+const ModalContentWrapper = ({icon, text}) => {
+  return (
+    <View style={styles.modalContainer}>
+      <View style={styles.modalContentContainer}>
+        <Icon name={icon} color="#5566dd" size={128} />
+        <Text style={styles.modalContentText}>{text}</Text>
+      </View>
+    </View>
+  );
+};
 
 const InputForm = ({label, footer}) => {
   const errorMsg = 'error foo foo';
@@ -13,7 +48,11 @@ const InputForm = ({label, footer}) => {
         <Text style={styles.inputLabel}>{label}</Text>
         <Text style={styles.inputError}>*{errorMsg}</Text>
       </View>
-      <Input inputStyle={styles.input} />
+      <Input
+        inputStyle={styles.input}
+        containerStyle={styles.inputContainer}
+        rightIcon={{type: 'ionicons', name: 'eye-outline'}}
+      />
       <Text
         style={[
           styles.inputFooter,
@@ -39,7 +78,7 @@ const TermsCheck = ({title}) => {
   );
 };
 
-const SignButton = ({title, onPress}) => {
+const SignButton = ({title, onPress, alternate}) => {
   //incialmente desactivado
   const [disabled, setDisabled] = useState(true);
   onPress = () => {
@@ -57,7 +96,10 @@ const SignButton = ({title, onPress}) => {
       ]}
       disabled={disabled}
       onPress={onPress}>
-      <Text style={styles.signButtonText}>{title}</Text>
+      <Text style={styles.signButtonText}>
+        {alternate ? <Icon name="logo-google" size={16} /> : <></>}
+        {title}
+      </Text>
     </Pressable>
   );
 };
@@ -81,16 +123,21 @@ const AlternateSign = () => {
   return (
     <View>
       <Text style={styles.alternateSignSeparator}>or</Text>
-      <SignButton title="Sign up wtih Google" color="#f1f1f1" />
+      <SignButton
+        title="Sign up wtih Google"
+        color="#f1f1f1"
+        alternate="true"
+      />
     </View>
   );
 };
 
 const LoginScreen = () => {
+  const [isVisible, setIsVisible] = useState(false);
+
   return (
     <ScrollView style={styles.LoginScreenContainer}>
       <Text style={styles.formHeader}>Sign up</Text>
-
       <View>
         <InputForm label="First name" />
         <InputForm label="Email" />
@@ -99,17 +146,22 @@ const LoginScreen = () => {
           footer="Use 8 or more characters with a mix of letters, numbers and symbols."
         />
       </View>
-
       <View style={styles.checkboxContainer}>
         <TermsCheck title="I agree to the Terms and Privacy Policy" />
         <TermsCheck title="Subscribe for  select  product updates" />
       </View>
-
       <SignButton title="Sign up" />
-
       <AlternateSign />
-
       <ToLoginMessage />
+      <Pressable
+        onPress={() => {
+          setIsVisible(true);
+        }}>
+        <Text>Hey</Text>
+      </Pressable>
+      <CustomModal isVisible={isVisible} setIsVisible={setIsVisible}>
+        <ModalContentWrapper text="Cargando..." icon="reload-circle-outline" />
+      </CustomModal>
     </ScrollView>
   );
 };
@@ -145,9 +197,11 @@ const styles = StyleSheet.create({
     paddingBottom: 5,
   },
   input: {
+    paddingBottom: 0,
+  },
+  inputContainer: {
     borderWidth: 1,
     borderColor: '#5566dd',
-    paddingBottom: 0,
     borderRadius: 5,
   },
   inputFooter: {
@@ -160,11 +214,13 @@ const styles = StyleSheet.create({
   signButton: {
     padding: 10,
     borderRadius: 10,
+    marginHorizontal: 20,
   },
   signButtonText: {
     fontWeight: 'bold',
     textAlign: 'center',
     color: 'white',
+    marginHorizontal: 20,
   },
   signButtonInactive: {
     backgroundColor: '#bbbbbb',
@@ -195,6 +251,23 @@ const styles = StyleSheet.create({
   inputLabelContainer: {
     display: 'flex',
     flexDirection: 'row',
+  },
+  modalContainer: {
+    width: '100%',
+    height: '100%',
+    backgroundColor: 'rgba(50, 50, 50, .4)',
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+  modalContentContainer: {
+    width: 160,
+    height: 180,
+    justifyContent: 'center',
+    alignItems: 'center',
+    backgroundColor: 'rgb(50, 50, 50)',
+  },
+  modalContentText: {
+    color: '#5566dd',
   },
 });
 
