@@ -18,10 +18,7 @@ const LoginScreen = () => {
       <View>
         <InputForm label="First name" />
         <InputForm label="Email" />
-        <InputForm
-          label="Password"
-          footer="Use 8 or more characters with a mix of letters, numbers and symbols."
-        />
+        <InputForm label="Password" footer="Use 8 or more characters with a mix of letters, numbers and symbols." />
       </View>
       <View style={styles.checkboxContainer}>
         <TermsCheck title="I agree to the Terms and Privacy Policy" />
@@ -29,20 +26,9 @@ const LoginScreen = () => {
       </View>
       <Button title="Sign up" buttonStyle={styles.PrimaryColor} />
       <Text style={styles.alternateSignSeparator}>or</Text>
-      <SocialIcon
-        title="Sign up with Google"
-        button
-        onPress={() => {
-          setIsVisible(!isVisible);
-        }}
-        type="google"
-        style={styles.PrimaryColor}
-      />
+      <SocialIcon title="Sign up with Google" button onPress={() => { setIsVisible(!isVisible); }} type="google" style={styles.PrimaryColor} />
       <ToLoginMessage />
-      <Overlay
-        overlayStyle={styles.ModalContainer}
-        isVisible={isVisible}
-        onBackdropPress={() => setIsVisible(!isVisible)}>
+      <Overlay overlayStyle={styles.ModalContainer} isVisible={isVisible} onBackdropPress={() => setIsVisible(!isVisible)}>
         <ActivityIndicator size={64} color="#5566dd" />
         <Text style={{color: '#5566dd'}}>Signing up</Text>
       </Overlay>
