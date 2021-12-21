@@ -12,7 +12,6 @@ Co-authored-by: Darkboy5120 <hmaldoando0@ucol.mx>
 */
 
 import React from 'react';
-import LoginScreen from './src/screens/LoginScreen';
 import MyFlightsScreen from './src/screens/MyFlightsScreen';
 
 const App = () => {
