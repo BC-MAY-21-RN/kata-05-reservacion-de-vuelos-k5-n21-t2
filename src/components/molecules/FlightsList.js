@@ -19,41 +19,41 @@ const flights = [
   },
   {
     id: '123123423',
-    date: 'september 3, 2020',
-    passengers: '2',
+    date: 'November 3, 2021',
+    passengers: '4',
     from: {
-      longname: 'Serbia',
-      shortname: 'BEG',
+      longname: 'Serbia4',
+      shortname: 'BEGG',
     },
     to: {
-      longname: 'Netherlands',
-      shortname: 'AMS',
+      longname: 'Netherlands4',
+      shortname: 'AMS4',
     },
   },
   {
     id: '223123123',
-    date: 'september 3, 2020',
+    date: 'september 5, 1020',
     passengers: '2',
     from: {
-      longname: 'Serbia',
-      shortname: 'BEG',
+      longname: 'Serbi6',
+      shortname: 'BEG6',
     },
     to: {
       longname: 'Netherlands',
-      shortname: 'AMS',
+      shortname: 'AMS6',
     },
   },
   {
     id: '123123133',
-    date: 'september 3, 2020',
-    passengers: '2',
+    date: 'september 7, 2020',
+    passengers: '7',
     from: {
-      longname: 'Serbia',
-      shortname: 'BEG',
+      longname: 'Serbia7',
+      shortname: 'BEG7',
     },
     to: {
-      longname: 'Netherlands',
-      shortname: 'AMS',
+      longname: 'Netherlands7',
+      shortname: 'AMS7',
     },
   },
 ];
