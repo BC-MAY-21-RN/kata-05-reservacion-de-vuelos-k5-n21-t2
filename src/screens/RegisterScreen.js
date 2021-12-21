@@ -1,22 +1,22 @@
 import React, {useState} from 'react';
 import {Text, ScrollView, ActivityIndicator} from 'react-native';
-import {ToSignInMessage} from '../components/atoms';
-import {LogInFields, AlternatedSignIn} from '../components/molecules';
+import {ToLoginMessage} from '../components/atoms';
+import {SignUpFields, AlternatedSignIn} from '../components/molecules';
 import {Overlay} from 'react-native-elements';
 import {styles, CustomOverlayStyle} from '../styles';
 import Theme from '../theme/light';
 
-const LoginScreen = () => {
+const SignupScreen = () => {
   const [isVisible, setIsVisible] = useState(false);
   return (
     <ScrollView style={styles.loginScreenContainer}>
-      <LogInFields />
+      <SignUpFields />
       <AlternatedSignIn
         isVisible={isVisible}
         setIsVisible={setIsVisible}
-        title="Log in with Google"
+        title="Sign up with Google"
       />
-      <ToSignInMessage />
+      <ToLoginMessage />
       <Overlay
         overlayStyle={CustomOverlayStyle.ModalContainer}
         isVisible={isVisible}
@@ -28,4 +28,4 @@ const LoginScreen = () => {
   );
 };
 
-export default LoginScreen;
+export default SignupScreen;
