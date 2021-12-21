@@ -58,30 +58,35 @@ const flights = [
   },
 ];
 
+const FlightItem = ({item, passengersString}) => {
+  return (
+    <View style={styles.flightItem}>
+      <View style={styles.flightItemRow}>
+        <Text style={styles.flightTextRow1}>{item.from.shortname}</Text>
+        <Icon style={styles.icon} name="airplane" type="ionicon" />
+        <Text style={styles.flightTextRow1}>{item.to.shortname}</Text>
+      </View>
+      <View style={[styles.flightItemRow2, styles.flightItemRow]}>
+        <Text style={styles.flightTextRow2}>{item.from.longname}</Text>
+        <Text style={styles.flightTextRow2}>{item.to.longname}</Text>
+      </View>
+      <View style={styles.flightItemRow}>
+        <Text style={styles.flightTextRow3}>{item.date}</Text>
+        <Text style={styles.flightTextRow3}>{item.passengersString}</Text>
+      </View>
+    </View>
+  );
+};
+
 const FlightsList = ({iconColor, iconSize}) => {
   const renderItem = ({item}) => {
     let passengersString = item.passengers + ' passeger';
     if (item.passengers !== '1') {
       passengersString += 's';
     }
+    item.passengersString = passengersString;
 
-    return (
-      <View style={styles.flightItem}>
-        <View style={styles.flightItemRow}>
-          <Text style={styles.flightTextRow1}>{item.from.shortname}</Text>
-          <Icon style={styles.icon} name="airplane" type="ionicon" />
-          <Text style={styles.flightTextRow1}>{item.to.shortname}</Text>
-        </View>
-        <View style={[styles.flightItemRow2, styles.flightItemRow]}>
-          <Text style={styles.flightTextRow2}>{item.from.longname}</Text>
-          <Text style={styles.flightTextRow2}>{item.to.longname}</Text>
-        </View>
-        <View style={styles.flightItemRow}>
-          <Text style={styles.flightTextRow3}>{item.date}</Text>
-          <Text style={styles.flightTextRow3}>{passengersString}</Text>
-        </View>
-      </View>
-    );
+    return <FlightItem item={item} />;
   };
 
   return (
