@@ -1,10 +1,10 @@
 import React from 'react';
-import {View, Text, Pressable} from 'react-native';
+import {View, Text, Pressable, Alert} from 'react-native';
 import style from '../../styles/ToLoginMessage';
 
 export const ToLoginMessage = () => {
   const goToLoginScreen = () => {
-    console.log('to login screen');
+    Alert.alert('Hey', 'goToLoginScreen');
   };
 
   return (
