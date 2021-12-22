@@ -12,7 +12,6 @@ Co-authored-by: Darkboy5120 <hmaldoando0@ucol.mx>
 */
 
 import React from 'react';
-import {Text} from 'react-native';
 import LoginScreen from './src/screens/LoginScreen';
 
 const App = () => {

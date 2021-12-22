@@ -1,30 +1,19 @@
-import React, {useState} from 'react';
-import {Text, ScrollView, ActivityIndicator} from 'react-native';
-import {ToSignInMessage} from '../components/atoms';
-import {LogInFields, AlternatedSignIn} from '../components/molecules';
-import {Overlay} from 'react-native-elements';
-import {styles, CustomOverlayStyle} from '../styles';
-import Theme from '../theme/light';
+import React from 'react';
+import SignForm from '../components/organisms/SignForm';
 
 const LoginScreen = () => {
-  const [isVisible, setIsVisible] = useState(false);
   return (
-    <ScrollView style={styles.loginScreenContainer}>
-      <LogInFields />
-      <AlternatedSignIn
-        isVisible={isVisible}
-        setIsVisible={setIsVisible}
-        title="Log in with Google"
-      />
-      <ToSignInMessage />
-      <Overlay
-        overlayStyle={CustomOverlayStyle.ModalContainer}
-        isVisible={isVisible}
-        onBackdropPress={() => setIsVisible(!isVisible)}>
-        <ActivityIndicator size={64} color="#5566dd" />
-        <Text color={Theme.Colors.primaryColor}>Signing up</Text>
-      </Overlay>
-    </ScrollView>
+    <SignForm
+      type="signin"
+      alternatedSignText="Log in with Google"
+      toSectionMessage={{
+        text: 'Not have an account?',
+        link: 'Sign up',
+      }}
+      loading={{
+        text: 'Signing in',
+      }}
+    />
   );
 };
 
