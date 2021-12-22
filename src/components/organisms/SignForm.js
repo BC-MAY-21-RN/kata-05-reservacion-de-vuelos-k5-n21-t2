@@ -5,7 +5,6 @@ import {LogInFields, SignUpFields, AlternatedSignIn} from '../molecules';
 import {Overlay} from 'react-native-elements';
 import {styles, CustomOverlayStyle} from '../../styles';
 import Theme from '../../theme/light';
-import { loadConfig } from 'metro-config';
 
 const SignFields = ({type}) => {
   return type === 'signin' ? <LogInFields /> : <SignUpFields />;

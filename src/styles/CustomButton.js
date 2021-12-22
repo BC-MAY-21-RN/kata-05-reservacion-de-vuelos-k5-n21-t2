@@ -11,4 +11,3 @@ export const CustomButtonStyle = StyleSheet.create({
     backgroundColor: Theme.Colors.primaryColor,
   },
 });
-
