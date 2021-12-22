@@ -2,16 +2,16 @@ import React from 'react';
 import {View, Text, Pressable, Alert} from 'react-native';
 import style from '../../styles/ToLoginMessage';
 
-export const ToSignInMessage = () => {
+export const ToOtherFormMessage = ({message,action}) => {
   const goToSignInScreen = () => {
-    Alert.alert('Hey', 'goToSignInScreen');
+    Alert.alert('Hey', 'goToOtherScreen');
   };
 
   return (
     <View style={style.toLoginMessage}>
-      <Text style={style.smallGrayText}>Not have an account? </Text>
+      <Text style={style.smallGrayText}>{message} </Text>
       <Pressable onPress={goToSignInScreen}>
-        <Text style={style.smallBlueText}>Sign Up</Text>
+        <Text style={style.smallBlueText}>{action}]</Text>
       </Pressable>
     </View>
   );

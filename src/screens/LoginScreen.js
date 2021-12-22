@@ -1,6 +1,6 @@
 import React, {useState} from 'react';
 import {Text, ScrollView, ActivityIndicator} from 'react-native';
-import {ToSignInMessage} from '../components/atoms';
+import {ToOtherFormMessage} from '../components/atoms';
 import {LogInFields, AlternatedSignIn} from '../components/molecules';
 import {Overlay} from 'react-native-elements';
 import {styles, CustomOverlayStyle} from '../styles';
@@ -16,7 +16,7 @@ const LoginScreen = () => {
         setIsVisible={setIsVisible}
         title="Log in with Google"
       />
-      <ToSignInMessage />
+      <ToOtherFormMessage message="Not have an account?" action="Sign up!"/>
       <Overlay
         overlayStyle={CustomOverlayStyle.ModalContainer}
         isVisible={isVisible}
