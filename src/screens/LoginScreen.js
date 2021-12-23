@@ -5,13 +5,9 @@ const LoginScreen = () => {
   return (
     <SignForm
       type="signin"
-      alternatedSignText="Log in with Google"
       toSectionMessage={{
         text: 'Not have an account?',
         link: 'Sign up',
-      }}
-      loading={{
-        text: 'Signing in',
       }}
     />
   );

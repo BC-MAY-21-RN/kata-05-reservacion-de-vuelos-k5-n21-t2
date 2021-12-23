@@ -5,16 +5,13 @@ const SignupScreen = () => {
   return (
     <SignForm
       type="signup"
-      alternatedSignText="Sign up with Google"
       toSectionMessage={{
         text: 'Already have an account?',
         link: 'Sign in',
-      }}
-      loading={{
-        text: 'Signing up',
       }}
     />
   );
 };
 
 export default SignupScreen;
+

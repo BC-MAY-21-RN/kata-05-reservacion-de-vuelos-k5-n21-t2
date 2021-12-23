@@ -10,7 +10,7 @@ const SignFields = ({type}) => {
   return type === 'signin' ? <LogInFields /> : <SignUpFields />;
 };
 
-const SignForm = ({type, alternatedSignText, toSectionMessage, loading}) => {
+const SignForm = ({type, toSectionMessage}) => {
   const [isVisible, setIsVisible] = useState(false);
   return (
     <ScrollView style={styles.signScreenContainer}>
@@ -18,7 +18,7 @@ const SignForm = ({type, alternatedSignText, toSectionMessage, loading}) => {
       <AlternatedSignIn
         isVisible={isVisible}
         setIsVisible={setIsVisible}
-        title={alternatedSignText}
+        title={type === 'signup' ? 'Sign up with Google' : 'Log in with Google'}
       />
       <ToSectionMessage
         text={toSectionMessage.text}
@@ -29,7 +29,9 @@ const SignForm = ({type, alternatedSignText, toSectionMessage, loading}) => {
         isVisible={isVisible}
         onBackdropPress={() => setIsVisible(!isVisible)}>
         <ActivityIndicator size={64} color="#5566dd" />
-        <Text color={Theme.Colors.primaryColor}>{loading.text}</Text>
+        <Text color={Theme.Colors.primaryColor}>
+          {type === 'signup' ? 'Signin up...' : 'Loging...'}
+        </Text>
       </Overlay>
     </ScrollView>
   );
