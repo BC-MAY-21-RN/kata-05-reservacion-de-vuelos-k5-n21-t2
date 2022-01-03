@@ -1,3 +1,5 @@
+[![Maintainability](https://api.codeclimate.com/v1/badges/2466a5d692a9441f2d7c/maintainability)](https://codeclimate.com/github/BC-MAY-21-RN/kata-05-reservacion-de-vuelos-k5-n21-t2/maintainability)
+[![DeepScan grade](https://deepscan.io/api/teams/16253/projects/19511/branches/508890/badge/grade.svg)](https://deepscan.io/dashboard#view=project&tid=16253&pid=19511&bid=508890)
 ![BrightCoders Logo](img/logo-bc.png)
 
 # Reservación de Vuelos

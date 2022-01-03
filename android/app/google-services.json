@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "1005940255457",
+    "project_id": "k5-n21-t2",
+    "storage_bucket": "k5-n21-t2.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1005940255457:android:4c808931bad6278b2ea5a0",
+        "android_client_info": {
+          "package_name": "com.kata05"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1005940255457-sc10mqe7t0n6h4phh13cvnf076pbjrpn.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCSBzJyvE9jhOK4vn3qM_NhcweT8JfzDfU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1005940255457-sc10mqe7t0n6h4phh13cvnf076pbjrpn.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
