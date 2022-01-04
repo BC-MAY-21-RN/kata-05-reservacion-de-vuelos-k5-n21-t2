@@ -12,10 +12,10 @@ Co-authored-by: Darkboy5120 <hmaldoando0@ucol.mx>
 */
 
 import React from 'react';
-import MyFlightsScreen from './src/screens/MyFlightsScreen';
+import BookingForm from './src/components/organisms/BookingForm';
 
 const App = () => {
-  return <MyFlightsScreen />;
+  return <BookingForm />;
 };
 
 export default App;
