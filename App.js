@@ -12,10 +12,10 @@ Co-authored-by: Darkboy5120 <hmaldoando0@ucol.mx>
 */
 
 import React from 'react';
-import MyFlightsScreen from './src/screens/MyFlightsScreen';
+import RegisterScreen from './src/screens/RegisterScreen';
 
 const App = () => {
-  return <MyFlightsScreen />;
+  return <RegisterScreen />;
 };
 
 export default App;
