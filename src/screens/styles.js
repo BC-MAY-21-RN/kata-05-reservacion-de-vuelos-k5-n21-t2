@@ -7,7 +7,7 @@ const styles = StyleSheet.create({
   formHeader: {
     color: 'purple',
     fontSize: 24,
-  },SIMON, DELETE
+  },
 });
 
 export default styles;
