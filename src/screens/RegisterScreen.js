@@ -1,16 +1,17 @@
 import React from 'react';
 import SignForm from '../components/organisms/SignForm';
 
-const LoginScreen = () => {
+const SignupScreen = () => {
   return (
     <SignForm
-      type="signin"
+      type="signup"
       toSectionMessage={{
-        text: 'Not have an account?',
-        link: 'Sign up',
+        text: 'Already have an account?',
+        link: 'Sign in',
       }}
     />
   );
 };
 
-export default LoginScreen;
+export default SignupScreen;
+

@@ -2,7 +2,7 @@ import React from 'react';
 import {View, Text, FlatList} from 'react-native';
 import Icon from 'react-native-vector-icons/Ionicons';
 import styles from '../../styles/FlightsList';
-import flights from '../../utils/testflights'
+import flights from '../../utils/testflights';
 
 const FlightItem = ({item, passengersString}) => {
   return (

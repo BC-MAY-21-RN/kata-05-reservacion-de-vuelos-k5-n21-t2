@@ -3,7 +3,7 @@ import Theme from '../theme/light';
 const {Colors} = Theme;
 
 export const styles = StyleSheet.create({
-  loginScreenContainer: {
+  signScreenContainer: {
     padding: 20,
     flex: 1,
   },

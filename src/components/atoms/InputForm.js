@@ -6,7 +6,6 @@ import style from '../../styles/InputForm';
 
 export const InputForm = ({label, footer}) => {
   const errorMsg = 'error foo foo';
-  console.log(footer === undefined, footer);
   return (
     <View style={style.inputFormContainer}>
       <View style={style.inputLabelContainer}>
