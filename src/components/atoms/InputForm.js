@@ -52,25 +52,17 @@ const checkRegex = (text, validation) => {
   return false;
 };
 
-const errorLength = (length, min, max) => {
-  if (length < min) {
-    return LOG.error.min;
-  } else if (length > max) {
-    return LOG.error.max;
-  }
+const isEmpty = (text, validation) => {
+  return validation.required && text === '';
 };
 
 const TriggerValidation = (text, setError, validation) => {
-  if (validation.required && text === '') {
+  if (isEmpty(text, validation)) {
     setError(initError(false, true, LOG.error.empty));
-  } else if (text.length) {
-    setError(
-      initError(
-        false,
-        true,
-        errorLength(text.length, validation.min, validation.max),
-      ),
-    );
+  } else if (text.length < validation.min) {
+    setError(initError(false, true, LOG.error.min));
+  } else if (text.length > validation.max) {
+    setError(initError(false, true, LOG.error.max));
   } else if (checkRegex(text, validation)) {
     setError(initError(false, true, LOG.error.regex));
   } else {
