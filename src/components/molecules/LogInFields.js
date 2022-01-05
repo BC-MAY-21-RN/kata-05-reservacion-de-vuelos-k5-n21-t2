@@ -7,9 +7,10 @@ import {InputForm, TermsCheck} from '../atoms';
 export const LogInFields = () => {
   return (
     <View>
-      <Text style={styles.formHeader}>Log In</Text><View>
+      <Text style={styles.formHeader}>Log In</Text>
+      <View>
         <InputForm label="Email" />
-        <InputForm label="Password"/>
+        <InputForm label="Password" />
       </View>
       <View style={styles.checkboxContainer}>
         <TermsCheck title="Remember me" />
