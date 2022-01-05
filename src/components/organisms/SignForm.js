@@ -6,15 +6,24 @@ import {Overlay} from 'react-native-elements';
 import {styles, CustomOverlayStyle} from '../../styles';
 import Theme from '../../theme/light';
 
-const SignFields = ({type, setForm}) => {
-  return type === 'signin' ? <LogInFields setForm={setForm} /> : <SignUpFields setForm={setForm} />;
+const SignFields = ({type, setForm, handleLogin, values}) => {
+  return type === 'signin' ? (
+    <LogInFields setForm={setForm} handleLogin={handleLogin} values={values} />
+  ) : (
+    <SignUpFields setForm={setForm} handleLogin={handleLogin} values={values} />
+  );
 };
 
-const SignForm = ({type, toSectionMessage, setForm}) => {
+const SignForm = ({type, toSectionMessage, setForm, handleLogin, values}) => {
   const [isVisible, setIsVisible] = useState(false);
   return (
     <ScrollView style={styles.signScreenContainer}>
-      <SignFields type={type} setForm={setForm}/>
+      <SignFields
+        type={type}
+        setForm={setForm}
+        handleLogin={handleLogin}
+        values={values}
+      />
       <AlternatedSignIn
         isVisible={isVisible}
         setIsVisible={setIsVisible}

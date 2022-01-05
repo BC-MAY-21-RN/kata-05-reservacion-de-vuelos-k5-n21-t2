@@ -4,7 +4,7 @@ import {Button} from 'react-native-elements';
 import {styles, CustomButtonStyle} from '../../styles';
 import {InputForm, InputValidation, TermsCheck} from '../atoms';
 
-export const LogInFields = ({setForm}) => {
+export const LogInFields = ({setForm, handleLogin, values}) => {
   return (
     <View>
       <Text style={styles.formHeader}>Log In</Text>
@@ -23,7 +23,11 @@ export const LogInFields = ({setForm}) => {
       <View style={styles.checkboxContainer}>
         <TermsCheck title="Remember me" />
       </View>
-      <Button title="Log in" buttonStyle={CustomButtonStyle.customButton} />
+      <Button
+        title="Log in"
+        buttonStyle={CustomButtonStyle.customButton}
+        onPress={() => handleLogin(values.email, values.password)}
+      />
     </View>
   );
 };

@@ -1,6 +1,18 @@
 import React from 'react';
 import SignForm from '../components/organisms/SignForm';
 import useLogin from '../hooks/useLogin';
+import auth from '@react-native-firebase/auth';
+
+const handleLogin = (email, password) => {
+  auth()
+    .signInWithEmailAndPassword(email, password)
+    .then(() => {
+      console.log('Signed in');
+    })
+    .catch(error => {
+      console.log(error);
+    });
+};
 
 const LoginScreen = () => {
   const [form, setForm] = useLogin();
@@ -13,6 +25,8 @@ const LoginScreen = () => {
         link: 'Sign up',
       }}
       setForm={setForm}
+      handleLogin={handleLogin}
+      values={form}
     />
   );
 };
