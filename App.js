@@ -12,10 +12,10 @@ Co-authored-by: Darkboy5120 <hmaldoando0@ucol.mx>
 */
 
 import React from 'react';
-import RegisterScreen from './src/screens/RegisterScreen';
+import LoginScreen from './src/screens/LoginScreen';
 
 const App = () => {
-  return <RegisterScreen />;
+  return <LoginScreen />;
 };
 
 export default App;
