@@ -39,6 +39,19 @@ const initError = (isOk, visible, message) => {
   };
 };
 
+const checkRegex = (text, validation) => {
+  if (validation.regex === undefined) {
+    return false;
+  } else if (
+    validation.not
+      ? !text.match(validation.regex)
+      : text.match(validation.regex)
+  ) {
+    return true;
+  }
+  return false;
+};
+
 const TriggerValidation = (text, setError, validation) => {
   if (validation.required && text === '') {
     setError(initError(false, true, LOG.error.empty));
@@ -46,14 +59,8 @@ const TriggerValidation = (text, setError, validation) => {
     setError(initError(false, true, LOG.error.min));
   } else if (text.length > validation.max) {
     setError(initError(false, true, LOG.error.max));
-  } else if (validation.refex !== undefined) {
-    if (
-      validation.not
-        ? !text.match(validation.regex)
-        : text.match(validation.regex)
-    ) {
-      setError(initError(false, true, LOG.error.regex));
-    }
+  } else if (checkRegex(text, validation)) {
+    setError(initError(false, true, LOG.error.regex));
   } else {
     setError(initError(true, false));
   }
