@@ -53,11 +53,11 @@ const checkRegex = (text, validation) => {
 };
 
 const isEmpty = (text, validation) => {
-  return validation.required && text === '';
+  return validation.required && (text === '' || text === undefined);
 };
 
 const TriggerValidation = (text, setError, validation) => {
-  if (isEmpty(text, validation) || text === undefined) {
+  if (isEmpty(text, validation)) {
     setError(initError(false, true, LOG.error.empty));
   } else if (text.length < validation.min) {
     setError(initError(false, true, LOG.error.min));
