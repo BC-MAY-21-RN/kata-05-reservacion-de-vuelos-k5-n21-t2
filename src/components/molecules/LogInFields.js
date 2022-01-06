@@ -4,7 +4,7 @@ import {Button} from 'react-native-elements';
 import {styles, CustomButtonStyle} from '../../styles';
 import {InputForm, InputValidation, TermsCheck} from '../atoms';
 
-export const LogInFields = ({setForm, handleLogin, values}) => {
+export const LogInFields = ({formHook, handleLogin, values}) => {
   return (
     <View>
       <Text style={styles.formHeader}>Log In</Text>
@@ -12,18 +12,19 @@ export const LogInFields = ({setForm, handleLogin, values}) => {
         <InputForm
           label="Email"
           validation={InputValidation.email}
-          setForm={setForm}
+          formHook={formHook}
         />
         <InputForm
           label="Password"
           validation={InputValidation.password}
-          setForm={setForm}
+          formHook={formHook}
         />
       </View>
       <View style={styles.checkboxContainer}>
         <TermsCheck title="Remember me" />
       </View>
       <Button
+        disabled={formHook.form.submit}
         title="Log in"
         buttonStyle={CustomButtonStyle.customButton}
         onPress={() => handleLogin(values.email, values.password)}

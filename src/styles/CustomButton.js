@@ -10,4 +10,14 @@ export const CustomButtonStyle = StyleSheet.create({
     height: 50,
     backgroundColor: Theme.Colors.primaryColor,
   },
+  customDisabledButton: {
+    backgroundColor: 'rgba(230, 230, 230, 1)',
+    color: 'black',
+  },
+  customDisabledButtonFont: {
+    color: 'gray',
+  },
+  customDisabledButtonIcon: {
+    color: 'gray',
+  },
 });

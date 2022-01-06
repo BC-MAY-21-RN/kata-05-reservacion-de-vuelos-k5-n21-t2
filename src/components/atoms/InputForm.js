@@ -70,7 +70,7 @@ const TriggerValidation = (text, setError, validation) => {
   }
 };
 
-export const InputForm = ({label, footer, validation, setForm}) => {
+export const InputForm = ({label, footer, validation, formHook}) => {
   const [error, setError] = useState(initError());
   return (
     <View style={style.inputFormContainer}>
@@ -83,7 +83,7 @@ export const InputForm = ({label, footer, validation, setForm}) => {
       <Input
         onChangeText={text => {
           TriggerValidation(text, setError, validation);
-          setForm(label.toLowerCase(), text)
+          formHook.setForm(label.toLowerCase(), text, error.isOk);
         }}
         inputStyle={style.input}
         containerStyle={style.inputContainer}
