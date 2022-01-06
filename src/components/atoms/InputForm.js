@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useState, useEffect} from 'react';
 import {View, Text} from 'react-native';
 import {Input} from 'react-native-elements';
 import Icon from 'react-native-vector-icons/Ionicons';
@@ -57,7 +57,7 @@ const isEmpty = (text, validation) => {
 };
 
 const TriggerValidation = (text, setError, validation) => {
-  if (isEmpty(text, validation)) {
+  if (isEmpty(text, validation) || text === undefined) {
     setError(initError(false, true, LOG.error.empty));
   } else if (text.length < validation.min) {
     setError(initError(false, true, LOG.error.min));
@@ -71,7 +71,10 @@ const TriggerValidation = (text, setError, validation) => {
 };
 
 export const InputForm = ({label, footer, validation, formHook}) => {
+  const [textField, setTextField] = useState();
   const [error, setError] = useState(initError());
+  const labelLower = label.toLowerCase();
+  useEffect(() => formHook.setForm(labelLower, textField, error.isOk), [error]);
   return (
     <View style={style.inputFormContainer}>
       <View style={style.inputLabelContainer}>
@@ -82,8 +85,8 @@ export const InputForm = ({label, footer, validation, formHook}) => {
       </View>
       <Input
         onChangeText={text => {
+          setTextField(text);
           TriggerValidation(text, setError, validation);
-          formHook.setForm(label.toLowerCase(), text, error.isOk);
         }}
         inputStyle={style.input}
         containerStyle={style.inputContainer}
