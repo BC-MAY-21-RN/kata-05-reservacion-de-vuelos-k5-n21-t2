@@ -8,7 +8,6 @@ const useLogin = () => {
     if (action === 'email') setEmail({value, isOk});
     if (action === 'password') setPassword({value, isOk});
     const allIsOk = email.isOk && password.isOk;
-    console.log(email.isOk, password.isOk);
     setSubmit(allIsOk ? false : true);
   };
 
