@@ -27,7 +27,7 @@ export const LogInFields = ({formHook, handleLogin, values}) => {
         disabled={formHook.form.submit}
         title="Log in"
         buttonStyle={CustomButtonStyle.customButton}
-        onPress={() => handleLogin(values.email, values.password)}
+        onPress={() => handleLogin(values.email.value, values.password.value)}
       />
     </View>
   );
