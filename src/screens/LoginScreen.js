@@ -24,7 +24,8 @@ const LoginScreen = () => {
         text: 'Not have an account?',
         link: 'Sign up',
       }}
-      setForm={setForm}
+      formHook={{form, setForm}}
+      form={form}
       handleLogin={handleLogin}
       values={form}
     />
