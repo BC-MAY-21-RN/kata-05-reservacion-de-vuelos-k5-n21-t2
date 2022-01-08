@@ -10,6 +10,7 @@ export const InputValidation = {
     max: 25,
     not: true,
     regex:
+      // eslint-disable-next-line no-useless-escape
       /^(([^<>()[\]\.,;:\s@\"]+(\.[^<>()[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/i,
   },
   password: {
@@ -74,6 +75,7 @@ export const InputForm = ({label, footer, validation, formHook}) => {
   const [textField, setTextField] = useState();
   const [error, setError] = useState(initError());
   const labelLower = label.toLowerCase();
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   useEffect(() => formHook.setForm(labelLower, textField, error.isOk), [error]);
   return (
     <View style={style.inputFormContainer}>
