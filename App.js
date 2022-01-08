@@ -9,13 +9,14 @@
 /*
 Co-authored-by: Namoku <contact@namoku.xyz>
 Co-authored-by: Darkboy5120 <hmaldoando0@ucol.mx>
+Co-authored-by: thisisofficial <thisisofficiallyofficial@gmail.com>
 */
 
 import React from 'react';
-import MyFlightsScreen from './src/screens/MyFlightsScreen';
+import LoginScreen from './src/screens/LoginScreen';
 
 const App = () => {
-  return <MyFlightsScreen />;
+  return <LoginScreen />;
 };
 
 export default App;
