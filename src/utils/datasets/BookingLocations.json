@@ -1,0 +1,10 @@
+[
+  {"name": "Algeria", "countryCode" : "BZ"},
+  {"name": "Canada", "countryCode" : "CA"},
+  {"name": "Chile", "countryCode" : "CL"},
+  {"name": "Colombia", "countryCode" : "CO"},
+  {"name": "Cuba", "countryCode" : "CU"},
+  {"name": "Ecuador", "countryCode" : "EC"},
+  {"name": "France", "countryCode" : "FR"},
+  {"name": "México", "countryCode" : "MX"}
+]
