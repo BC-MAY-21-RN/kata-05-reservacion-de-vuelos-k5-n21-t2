@@ -1,20 +1,23 @@
 import React from 'react';
 import {View} from 'react-native';
 import {Text} from 'react-native-elements';
-import BookingLocationsForm from '../components/organisms/BookingLocationsForm';
+import BookingStep3Form from '../components/organisms/BookingStep3Form';
 import FlightLocations from '../components/molecules/FlightLocations';
 import styles from '../styles/BookingStep1';
 
-const BookingStep2 = () => {
+const BookingStep3 = () => {
   return (
     <View style={styles.container}>
-      <FlightLocations from={{shortname: 'BEG', longname: 'Serbia'}} />
+      <FlightLocations
+        from={{shortname: 'BEG', longname: 'Serbia'}}
+        to={{shortname: 'AMS', longname: 'Netherlands'}}
+      />
       <View style={styles.headerContainer}>
-        <Text h2>Where will you be flying to?</Text>
+        <Text h2>Select date</Text>
       </View>
-      <BookingLocationsForm />
+      <BookingStep3Form />
     </View>
   );
 };
 
-export default BookingStep2;
+export default BookingStep3;

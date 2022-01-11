@@ -16,6 +16,9 @@ const styles = StyleSheet.create({
     borderBottomWidth: 1,
     borderBottomColor: 'gray',
   },
+  rightText: {
+    textAlign: 'right',
+  },
   flightTextRow1: {
     width: '40%',
     fontSize: Theme.Font.xl,

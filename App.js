@@ -12,10 +12,10 @@ Co-authored-by: Darkboy5120 <hmaldoando0@ucol.mx>
 */
 
 import React from 'react';
-import BookingStep2 from './src/screens/BookingStep2';
+import BookingStep3 from './src/screens/BookingStep3';
 
 const App = () => {
-  return <BookingStep2 />;
+  return <BookingStep3 />;
 };
 
 export default App;

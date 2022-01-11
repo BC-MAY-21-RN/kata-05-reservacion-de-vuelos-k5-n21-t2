@@ -9,7 +9,7 @@ const FlightLocations = ({from, to}) => {
       <View style={styles.flightItemRow}>
         <Text style={styles.flightTextRow1}>{from.shortname}</Text>
         <Icon style={styles.icon} name="airplane" type="ionicon" />
-        <Text style={styles.flightTextRow1}>
+        <Text style={[styles.flightTextRow1, styles.rightText]}>
           {to !== undefined ? to.shortname : null}
         </Text>
       </View>
