@@ -8,6 +8,7 @@ export const AlternatedSignIn = ({
   isVisible,
   setIsVisible,
   title,
+  onGoogleButtonPress,
 }) => {
   return (
     <View>
@@ -26,9 +27,7 @@ export const AlternatedSignIn = ({
         }
         title={title}
         button
-        onPress={() => {
-          setIsVisible(!isVisible);
-        }}
+        onPress={onGoogleButtonPress}
         type="google"
         style={[
           CustomButtonStyle.customButton,
