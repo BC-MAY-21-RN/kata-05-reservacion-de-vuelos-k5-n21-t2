@@ -6,7 +6,7 @@ import styles from '../../styles/BookingStep1Form';
 import {Picker} from '@react-native-picker/picker';
 const BookingLocations = require('../../utils/datasets/BookingLocations.json');
 
-const BookingStep1Form = () => {
+const BookingLocationsForm = () => {
   const [location, setLocation] = useState('1');
 
   return (
@@ -39,4 +39,4 @@ const BookingStep1Form = () => {
   );
 };
 
-export default BookingStep1Form;
+export default BookingLocationsForm;

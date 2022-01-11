@@ -5,13 +5,14 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
   },
-  header: {
-    textAlign: 'center',
-  },
   headerContainer: {
-    flex: 2,
+    flex: 1,
     display: 'flex',
     justifyContent: 'center',
+    marginHorizontal: Theme.Spacing.xl,
+  },
+  upperContainer: {
+    flex: 1,
   },
 });
 

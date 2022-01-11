@@ -10,7 +10,6 @@ const styles = StyleSheet.create({
     flex: 1,
   },
   submitContainer: {
-    flex: 3,
     display: 'flex',
     justifyContent: 'flex-end',
   },
