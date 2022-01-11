@@ -1,8 +1,12 @@
-import React, {useEffect} from 'react';
+import React from 'react';
 import {Alert} from 'react-native';
 import SignForm from '../components/organisms/SignForm';
 import useLogin from '../hooks/useLogin';
 import auth from '@react-native-firebase/auth';
+import {GoogleSignin} from '@react-native-google-signin/google-signin';
+import {AuthStack} from '../store/AuthStack';
+
+const onGoogleButtonPress = AuthStack(auth, GoogleSignin);
 
 const handleLogin = (email, password) => {
   auth()
@@ -17,6 +21,11 @@ const handleLogin = (email, password) => {
 
 const LoginScreen = () => {
   const [form, setForm] = useLogin();
+  auth().onAuthStateChanged(user => {
+    if (user) {
+      console.log(user);
+    }
+  });
 
   return (
     <SignForm
@@ -29,6 +38,7 @@ const LoginScreen = () => {
       form={form}
       handleLogin={handleLogin}
       values={form}
+      onGoogleButtonPress={onGoogleButtonPress}
     />
   );
 };

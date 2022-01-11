@@ -22,7 +22,14 @@ const SignFields = ({type, formHook, handleLogin, values}) => {
   );
 };
 
-const SignForm = ({type, toSectionMessage, formHook, handleLogin, values}) => {
+const SignForm = ({
+  type,
+  toSectionMessage,
+  formHook,
+  handleLogin,
+  values,
+  onGoogleButtonPress,
+}) => {
   const [isVisible, setIsVisible] = useState(false);
   return (
     <ScrollView style={styles.signScreenContainer}>
@@ -37,6 +44,7 @@ const SignForm = ({type, toSectionMessage, formHook, handleLogin, values}) => {
         isVisible={isVisible}
         setIsVisible={setIsVisible}
         title={type === 'signup' ? 'Sign up with Google' : 'Log in with Google'}
+        onGoogleButtonPress={onGoogleButtonPress}
       />
       <ToSectionMessage
         text={toSectionMessage.text}
