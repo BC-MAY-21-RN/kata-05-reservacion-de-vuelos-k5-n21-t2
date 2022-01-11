@@ -1,22 +1,17 @@
 import React, {useState} from 'react';
 import {View} from 'react-native';
-import {Text, Button} from 'react-native-elements';
+import {Button} from 'react-native-elements';
 import {CustomButtonStyle} from '../../styles';
-import styles from '../../styles/BookingForm';
+import styles from '../../styles/BookingStep1Form';
 import {Picker} from '@react-native-picker/picker';
 const BookingLocations = require('../../utils/datasets/BookingLocations.json');
 
-const BookingForm = () => {
+const BookingStep1Form = () => {
   const [location, setLocation] = useState('1');
 
   return (
     <View style={styles.container}>
-      <View style={styles.headerContainer}>
-        <Text h2 style={styles.header}>
-          Where are you now?
-        </Text>
-      </View>
-      <View styles={styles.fields}>
+      <View style={styles.fields}>
         <Picker
           selectedValue={location}
           onValueChange={(itemValue, itemIndex) => setLocation(itemValue)}>
@@ -44,4 +39,4 @@ const BookingForm = () => {
   );
 };
 
-export default BookingForm;
+export default BookingStep1Form;
