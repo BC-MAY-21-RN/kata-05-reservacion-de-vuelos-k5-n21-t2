@@ -25,12 +25,15 @@ export const SignUpFields = ({formHook, handleLogin, values}) => {
         footer="Use 8 or more characters with a mix of letters, numbers and symbols."
       />
       <View style={styles.checkboxContainer}>
-        <TermsCheck title="I agree to the Terms and Privacy Policy" />
+        <TermsCheck
+          title="I agree to the Terms and Privacy Policy"
+          formHook={formHook}
+        />
         <TermsCheck title="Subscribe for  select  product updates" />
       </View>
       <Button
         disabled={formHook.form.submit}
-        title="Log in"
+        title="Sign up"
         buttonStyle={CustomButtonStyle.customButton}
         onPress={() => handleLogin(values.email.value, values.password.value)}
       />

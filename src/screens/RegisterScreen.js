@@ -1,7 +1,7 @@
 import React from 'react';
 import {Alert} from 'react-native';
 import SignForm from '../components/organisms/SignForm';
-import useLogin from '../hooks/useRegister';
+import useRegister from '../hooks/useRegister';
 import auth from '@react-native-firebase/auth';
 import {GoogleSignin} from '@react-native-google-signin/google-signin';
 import {AuthStack} from '../store/AuthStack';
@@ -10,7 +10,7 @@ const onGoogleButtonPress = AuthStack(auth, GoogleSignin);
 
 const handleRegister = (email, password) => {
   auth()
-    .signInWithEmailAndPassword(email, password)
+    .createUserWithEmailAndPassword(email, password)
     .then(() => {
       Alert.alert('Good', 'good');
     })
@@ -20,7 +20,7 @@ const handleRegister = (email, password) => {
 };
 
 const SignupScreen = () => {
-  const [form, setForm] = useLogin();
+  const [form, setForm] = useRegister();
 
   return (
     <SignForm
