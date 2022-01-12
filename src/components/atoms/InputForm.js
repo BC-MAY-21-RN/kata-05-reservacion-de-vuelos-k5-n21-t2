@@ -15,7 +15,12 @@ export const InputValidation = {
   },
   password: {
     required: true,
-    min: 20,
+    min: 8,
+    max: 50,
+  },
+  name: {
+    required: true,
+    min: 8,
     max: 50,
   },
 };
