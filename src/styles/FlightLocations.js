@@ -9,8 +9,16 @@ const styles = StyleSheet.create({
     paddingBottom: Theme.Spacing.xs,
   },
   flightItem: {
+  },
+  container: {
     margin: Theme.Spacing.xl,
     paddingBottom: Theme.Spacing.xl,
+  },
+  date: {
+    color: 'black',
+    fontSize: Theme.Font.m,
+    fontWeight: '600',
+    marginTop: Theme.Spacing.m,
   },
   flightItemRow2: {
     borderBottomWidth: 1,
