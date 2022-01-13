@@ -17,8 +17,7 @@ const BookingStep5 = ({route, navigation}) => {
   return (
     <View style={styles.container}>
       <View style={styles.locationsContainer}>
-        <FlightLocations
-          from={{shortname: fromRow.countryCode, longname: fromRow.name}}
+        <FlightLocations from={{shortname: fromRow.countryCode, longname: fromRow.name}}
           to={{shortname: toRow.countryCode, longname: toRow.name}} date={route.params.date}
         />
       </View>

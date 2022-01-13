@@ -11,8 +11,7 @@ const BookingStep4 = ({route, navigation}) => {
   const toRow = BookingLocations.Find(route.params.to.toString());
   return (
     <View style={styles.container}>
-      <FlightLocations
-        from={{shortname: fromRow.countryCode, longname: fromRow.name}}
+      <FlightLocations from={{shortname: fromRow.countryCode, longname: fromRow.name}}
         to={{shortname: toRow.countryCode, longname: toRow.name}} date={route.params.date}
       />
       <View style={styles.headerContainer}>
