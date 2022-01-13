@@ -1,16 +1,16 @@
 import React from 'react';
 import {Alert} from 'react-native';
 import SignForm from '../components/organisms/SignForm';
-import useLogin from '../hooks/useLogin';
+import useRegister from '../hooks/useRegister';
 import auth from '@react-native-firebase/auth';
 import {GoogleSignin} from '@react-native-google-signin/google-signin';
 import {AuthStack} from '../store/AuthStack';
 
 const onGoogleButtonPress = AuthStack(auth, GoogleSignin);
 
-const handleLogin = (email, password) => {
+const handleRegister = (email, password) => {
   auth()
-    .signInWithEmailAndPassword(email, password)
+    .createUserWithEmailAndPassword(email, password)
     .then(() => {
       Alert.alert('Good', 'good');
     })
@@ -19,28 +19,23 @@ const handleLogin = (email, password) => {
     });
 };
 
-const LoginScreen = () => {
-  const [form, setForm] = useLogin();
-  auth().onAuthStateChanged(user => {
-    if (user) {
-      console.log(user);
-    }
-  });
+const SignupScreen = () => {
+  const [form, setForm] = useRegister();
 
   return (
     <SignForm
-      type="signin"
+      type="signup"
       toSectionMessage={{
-        text: 'Not have an account?',
-        link: 'Sign up',
+        text: 'Already have an account?',
+        link: 'Sign in',
       }}
       formHook={{form, setForm}}
       form={form}
-      handleLogin={handleLogin}
+      handleLogin={handleRegister}
       values={form}
       onGoogleButtonPress={onGoogleButtonPress}
     />
   );
 };
 
-export default LoginScreen;
+export default SignupScreen;

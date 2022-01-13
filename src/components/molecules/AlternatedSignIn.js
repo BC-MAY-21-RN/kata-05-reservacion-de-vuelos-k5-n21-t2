@@ -3,16 +3,14 @@ import {View, Text} from 'react-native';
 import {SocialIcon} from 'react-native-elements';
 import {styles, CustomButtonStyle} from '../../styles';
 
-export const AlternatedSignIn = ({isVisible, setIsVisible}) => {
+export const AlternatedSignIn = ({formHook, title, onGoogleButtonPress}) => {
   return (
     <View>
       <Text style={styles.alternateSignSeparator}>or</Text>
       <SocialIcon
-        title="Sign up with Google"
+        title={title}
         button
-        onPress={() => {
-          setIsVisible(!isVisible);
-        }}
+        onPress={onGoogleButtonPress}
         type="google"
         style={CustomButtonStyle.customButton}
       />
