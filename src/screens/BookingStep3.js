@@ -7,7 +7,6 @@ import styles from '../styles/BookingStep1';
 const BookingLocations = require('../utils/datasets/BookingLocations.json');
 
 const BookingStep3 = ({route, navigation}) => {
-  console.log(route.params);
   const fromRow = BookingLocations.find(
     e => e.id.toString() === route.params.from.toString(),
   );

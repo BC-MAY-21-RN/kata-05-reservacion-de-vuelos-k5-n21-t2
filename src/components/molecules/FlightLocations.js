@@ -3,6 +3,32 @@ import Icon from 'react-native-vector-icons/Ionicons';
 import {View, Text} from 'react-native';
 import styles from '../../styles/FlightLocations';
 
+const GetMonthName = monthNumber => {
+  const monthNames = [
+    '',
+    'January',
+    'February',
+    'March',
+    'May',
+    'June',
+    'July',
+    'August',
+    'September',
+    'November',
+    'December',
+  ];
+  return monthNames[parseInt(monthNumber)];
+};
+
+const NiceDate = date => {
+  let dateObj = new Date(date);
+  const year = dateObj.getFullYear();
+  const day = parseInt(dateObj.getDate()) + 1;
+  const month = parseInt(dateObj.getMonth()) + 1;
+  const result = `${GetMonthName(month)} ${day}, ${year}`;
+  return result;
+};
+
 const FlightLocations = ({from, to, date}) => {
   return (
     <View style={styles.container}>
@@ -21,7 +47,9 @@ const FlightLocations = ({from, to, date}) => {
           </Text>
         </View>
       </View>
-      <Text style={styles.date}>{date}</Text>
+      <Text style={styles.date}>
+        {date !== undefined ? NiceDate(date) : null}
+      </Text>
     </View>
   );
 };

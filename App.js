@@ -17,6 +17,7 @@ import BookingStep1 from './src/screens/BookingStep1';
 import BookingStep2 from './src/screens/BookingStep2';
 import BookingStep3 from './src/screens/BookingStep3';
 import BookingStep4 from './src/screens/BookingStep4';
+import BookingStep5 from './src/screens/BookingStep5';
 import {NavigationContainer} from '@react-navigation/native';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
 
@@ -32,6 +33,7 @@ const App = () => {
         <Stack.Screen name="bookingstep2" component={BookingStep2} />
         <Stack.Screen name="bookingstep3" component={BookingStep3} />
         <Stack.Screen name="bookingstep4" component={BookingStep4} />
+        <Stack.Screen name="bookingstep5" component={BookingStep5} />
       </Stack.Navigator>
     </NavigationContainer>
   );
