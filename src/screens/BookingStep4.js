@@ -13,8 +13,7 @@ const BookingStep4 = ({route, navigation}) => {
     <View style={styles.container}>
       <FlightLocations
         from={{shortname: fromRow.countryCode, longname: fromRow.name}}
-        to={{shortname: toRow.countryCode, longname: toRow.name}}
-        date={route.params.date}
+        to={{shortname: toRow.countryCode, longname: toRow.name}} date={route.params.date}
       />
       <View style={styles.headerContainer}>
         <Text h2>How many passengers?</Text>
