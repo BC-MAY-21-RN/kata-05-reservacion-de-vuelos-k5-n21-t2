@@ -7,6 +7,7 @@ import com.facebook.react.ReactApplication;
 import com.tron.ReactNativeWheelPickerPackage;
 import com.swmansion.rnscreens.RNScreensPackage;
 import com.reactnativecommunity.picker.RNCPickerPackage;
+import com.reactnativecommunity.asyncstorage.AsyncStoragePackage;
 import com.oblador.vectoricons.VectorIconsPackage;
 import com.facebook.react.ReactInstanceManager;
 import com.facebook.react.ReactNativeHost;

@@ -13,10 +13,9 @@ target 'kata05' do
   )
 
   pod 'RNVectorIcons', :path => '../node_modules/react-native-vector-icons'
-
   pod 'RNCPicker', :path => '../node_modules/@react-native-picker/picker'
-
   pod 'RNScreens', :path => '../node_modules/react-native-screens'
+  pod 'RNCAsyncStorage', :path => '../node_modules/@react-native-async-storage/async-storage'
 
   target 'kata05Tests' do
     inherit! :complete
