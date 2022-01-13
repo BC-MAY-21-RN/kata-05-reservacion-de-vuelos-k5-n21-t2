@@ -5,7 +5,8 @@ import BookingStep4Form from '../components/organisms/BookingStep4Form';
 import FlightLocations from '../components/molecules/FlightLocations';
 import styles from '../styles/BookingStep1';
 
-const BookingStep4 = () => {
+const BookingStep4 = ({route, navigation}) => {
+  console.log(route.params);
   return (
     <View style={styles.container}>
       <FlightLocations

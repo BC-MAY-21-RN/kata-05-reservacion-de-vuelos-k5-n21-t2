@@ -30,7 +30,7 @@ const MarkedConfig = value => {
   return result;
 };
 
-const BookingStep3Form = () => {
+const BookingStep3Form = ({route, navigation}) => {
   const [location, setLocation] = useState('1');
   const minDate = getToday();
   const [value, setValue] = useState(minDate);
@@ -51,7 +51,13 @@ const BookingStep3Form = () => {
           <Button
             style={styles.submit}
             title="Next"
-            disabled={false}
+            onPress={() => {
+              navigation.navigate('bookingstep4', {
+                from: route.params.from,
+                to: route.params.to,
+                date: value,
+              });
+            }}
             buttonStyle={CustomButtonStyle.customButton}
           />
         </>

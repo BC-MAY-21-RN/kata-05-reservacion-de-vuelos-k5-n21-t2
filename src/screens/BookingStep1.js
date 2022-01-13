@@ -4,7 +4,7 @@ import {Text} from 'react-native-elements';
 import BookingLocationsForm from '../components/organisms/BookingLocationsForm';
 import styles from '../styles/BookingStep1';
 
-const BookingStep1 = () => {
+const BookingStep1 = ({navigation}) => {
   return (
     <View style={styles.container}>
       <View style={styles.upperContainer} />
@@ -13,7 +13,10 @@ const BookingStep1 = () => {
           Where are you now?
         </Text>
       </View>
-      <BookingLocationsForm />
+      <BookingLocationsForm
+        navigation={navigation}
+        nextSection="bookingstep2"
+      />
     </View>
   );
 };

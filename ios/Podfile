@@ -16,6 +16,8 @@ target 'kata05' do
 
   pod 'RNCPicker', :path => '../node_modules/@react-native-picker/picker'
 
+  pod 'RNScreens', :path => '../node_modules/react-native-screens'
+
   target 'kata05Tests' do
     inherit! :complete
     # Pods for testing

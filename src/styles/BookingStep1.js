@@ -7,8 +7,7 @@ const styles = StyleSheet.create({
   },
   headerContainer: {
     flex: 1,
-    display: 'flex',
-    justifyContent: 'center',
+    alignSelf: 'flex-start',
     marginHorizontal: Theme.Spacing.xl,
   },
   upperContainer: {
