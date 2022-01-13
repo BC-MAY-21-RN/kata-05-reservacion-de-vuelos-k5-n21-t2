@@ -1,23 +1,12 @@
 import React from 'react';
-import {Alert} from 'react-native';
 import SignForm from '../components/organisms/SignForm';
 import useLogin from '../hooks/useLogin';
 import auth from '@react-native-firebase/auth';
 import {GoogleSignin} from '@react-native-google-signin/google-signin';
 import {AuthStack} from '../store/AuthStack';
+import HandleGoogleSign from '../utils/GoogleHandleSign';
 
 const onGoogleButtonPress = AuthStack(auth, GoogleSignin);
-
-const handleLogin = (email, password) => {
-  auth()
-    .signInWithEmailAndPassword(email, password)
-    .then(() => {
-      Alert.alert('Good', 'good');
-    })
-    .catch(() => {
-      Alert.alert('Error', 'Invalid email or password.');
-    });
-};
 
 const LoginScreen = () => {
   const [form, setForm] = useLogin();
@@ -36,7 +25,7 @@ const LoginScreen = () => {
       }}
       formHook={{form, setForm}}
       form={form}
-      handleLogin={handleLogin}
+      handleLogin={HandleGoogleSign(auth, 'login')}
       values={form}
       onGoogleButtonPress={onGoogleButtonPress}
     />

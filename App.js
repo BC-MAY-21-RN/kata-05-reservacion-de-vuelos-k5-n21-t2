@@ -18,6 +18,8 @@ import BookingStep2 from './src/screens/BookingStep2';
 import BookingStep3 from './src/screens/BookingStep3';
 import BookingStep4 from './src/screens/BookingStep4';
 import BookingStep5 from './src/screens/BookingStep5';
+import LoginScreen from './src/screens/LoginScreen';
+import RegisterScreen from './src/screens/RegisterScreen';
 import {NavigationContainer} from '@react-navigation/native';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
 
@@ -27,8 +29,10 @@ const App = () => {
   return (
     <NavigationContainer>
       <Stack.Navigator
-        initialRouteName="bookingstep1"
+        initialRouteName="registerscreen"
         screenOptions={{headerShown: false}}>
+        <Stack.Screen name="loginscreen" component={LoginScreen} />
+        <Stack.Screen name="registerscreen" component={RegisterScreen} />
         <Stack.Screen name="bookingstep1" component={BookingStep1} />
         <Stack.Screen name="bookingstep2" component={BookingStep2} />
         <Stack.Screen name="bookingstep3" component={BookingStep3} />

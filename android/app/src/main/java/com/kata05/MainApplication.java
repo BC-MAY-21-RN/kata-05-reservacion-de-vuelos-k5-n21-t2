@@ -4,7 +4,6 @@ import android.app.Application;
 import android.content.Context;
 import com.facebook.react.PackageList;
 import com.facebook.react.ReactApplication;
-import com.tron.ReactNativeWheelPickerPackage;
 import com.swmansion.rnscreens.RNScreensPackage;
 import com.reactnativecommunity.picker.RNCPickerPackage;
 import com.reactnativecommunity.asyncstorage.AsyncStoragePackage;
