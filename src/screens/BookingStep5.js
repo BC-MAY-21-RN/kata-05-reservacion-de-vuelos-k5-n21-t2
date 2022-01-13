@@ -4,7 +4,7 @@ import {Text, Button} from 'react-native-elements';
 import FlightLocations from '../components/molecules/FlightLocations';
 import styles from '../styles/BookingStep1';
 import {CustomButtonStyle} from '../styles/CustomButton';
-const BookingLocations = require('../utils/datasets/BookingLocations.json');
+import BookingLocations from '../utils/BookingLocationsUtils';
 
 const doSaveOnFirebase = () => {
   console.log('save info in firebase');
@@ -12,19 +12,15 @@ const doSaveOnFirebase = () => {
 
 const BookingStep5 = ({route, navigation}) => {
   console.log(route.params);
-  const fromRow = BookingLocations.find(
-    e => e.id.toString() === route.params.from.toString(),
-  );
-  const toRow = BookingLocations.find(
-    e => e.id.toString() === route.params.to.toString(),
-  );
+  const fromRow = BookingLocations.Find(route.params.from.toString());
+  const toRow = BookingLocations.Find(route.params.to.toString());
   return (
     <View style={styles.container}>
       <View style={styles.locationsContainer}>
         <FlightLocations
-          from={{shortname: 'BEG', longname: 'Serbia'}}
-          to={{shortname: 'AMS', longname: 'Netherlands'}}
-          date="September 3, 2020"
+          from={{shortname: fromRow.countryCode, longname: fromRow.name}}
+          to={{shortname: toRow.countryCode, longname: toRow.name}}
+          date={route.params.date}
         />
       </View>
       <View style={styles.headerContainer}>

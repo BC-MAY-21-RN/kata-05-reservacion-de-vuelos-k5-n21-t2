@@ -4,8 +4,7 @@ import {Button} from 'react-native-elements';
 import {CustomButtonStyle} from '../../styles';
 import styles from '../../styles/BookingStep1Form';
 import {Picker} from '@react-native-picker/picker';
-const BookingLocations = require('../../utils/datasets/BookingLocations.json');
-let FooLocations = BookingLocations;
+import BookingLocations from '../../utils/BookingLocationsUtils';
 
 const BookingLocationsForm = ({route, navigation, nextSection}) => {
   const [location, setLocation] = useState('1');
@@ -16,7 +15,7 @@ const BookingLocationsForm = ({route, navigation, nextSection}) => {
   const [ListedLocations, listLocations] = useState(null);
 
   useEffect(() => {
-    const temp = FooLocations?.map(local => {
+    const temp = BookingLocations.JSON?.map(local => {
       return (
         <Picker.Item
           key={local.id.toString()}

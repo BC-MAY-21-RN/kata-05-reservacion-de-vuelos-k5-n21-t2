@@ -4,12 +4,10 @@ import {Text} from 'react-native-elements';
 import BookingLocationsForm from '../components/organisms/BookingLocationsForm';
 import FlightLocations from '../components/molecules/FlightLocations';
 import styles from '../styles/BookingStep1';
-const BookingLocations = require('../utils/datasets/BookingLocations.json');
+import BookingLocations from '../utils/BookingLocationsUtils';
 
 const BookingStep2 = ({route, navigation}) => {
-  const fromRow = BookingLocations.find(
-    e => e.id.toString() === route.params.from.toString(),
-  );
+  const fromRow = BookingLocations.Find(route.params.from.toString());
   return (
     <View style={styles.container}>
       <FlightLocations

@@ -3,7 +3,6 @@ import {View} from 'react-native';
 import {Button} from 'react-native-elements';
 import {CustomButtonStyle} from '../../styles';
 import styles from '../../styles/BookingStep1Form';
-import Theme from '../../theme/light';
 import {ScrollPicker} from 'react-native-value-picker';
 
 const MOCK_DATA = [
