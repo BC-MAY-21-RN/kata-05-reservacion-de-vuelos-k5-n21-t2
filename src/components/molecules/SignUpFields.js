@@ -25,6 +25,7 @@ export const SignUpFields = ({formHook, handleLogin, values}) => {
       />
       <InputForm
         label="Password"
+        password={true}
         validation={InputValidation.password}
         formHook={formHook}
         footer="Use 8 or more characters with a mix of letters, numbers and symbols."

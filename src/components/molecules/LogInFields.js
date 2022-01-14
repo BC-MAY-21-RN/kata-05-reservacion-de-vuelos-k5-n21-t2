@@ -21,6 +21,7 @@ export const LogInFields = ({formHook, handleLogin, values}) => {
         />
         <InputForm
           label="Password"
+          password={true}
           validation={InputValidation.password}
           formHook={formHook}
         />

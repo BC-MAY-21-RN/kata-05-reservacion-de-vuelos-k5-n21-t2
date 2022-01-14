@@ -1,5 +1,5 @@
 import React, {useState, useEffect} from 'react';
-import {View, Text} from 'react-native';
+import {View, Text, Pressable} from 'react-native';
 import {Input} from 'react-native-elements';
 import Icon from 'react-native-vector-icons/Ionicons';
 import style from '../../styles/InputForm';
@@ -76,10 +76,17 @@ const TriggerValidation = (text, setError, validation) => {
   }
 };
 
-export const InputForm = ({label, footer, validation, formHook}) => {
+export const InputForm = ({password, label, footer, validation, formHook}) => {
   const [textField, setTextField] = useState();
   const [error, setError] = useState(initError());
+  const [showText, setShowText] = useState(true);
   const labelLower = label.toLowerCase();
+  const rightIcon =
+    password !== undefined ? (
+      <Pressable onPress={() => setShowText(!showText)}>
+        <Icon name={showText ? 'eye-outline' : 'eye-off-outline'} size={24} />
+      </Pressable>
+    ) : null;
   // eslint-disable-next-line react-hooks/exhaustive-deps
   useEffect(() => formHook.setForm(labelLower, textField, error.isOk), [error]);
   return (
@@ -91,6 +98,7 @@ export const InputForm = ({label, footer, validation, formHook}) => {
         ) : null}
       </View>
       <Input
+        secureTextEntry={showText}
         onChangeText={text => {
           setTextField(text);
           TriggerValidation(text, setError, validation);
@@ -98,7 +106,7 @@ export const InputForm = ({label, footer, validation, formHook}) => {
         inputStyle={style.input}
         containerStyle={style.inputContainer}
         inputContainerStyle={style.inputContainerStyle}
-        rightIcon={<Icon name="eye-outline" size={24} />}
+        rightIcon={rightIcon}
       />
       <Text
         style={[style.inputFooter, footer === undefined ? style.hidden : null]}>
