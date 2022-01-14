@@ -1,12 +1,17 @@
 import React from 'react';
 import {View, Text} from 'react-native';
-import {Button} from 'react-native-elements';
 import {styles, CustomButtonStyle} from '../../styles';
 import {InputForm, InputValidation, TermsCheck} from '../atoms';
+import {Fields} from './';
 
 export const SignUpFields = ({formHook, handleLogin, values}) => {
   return (
-    <View>
+    <Fields
+      disabled={formHook.form.submit}
+      title="Sign up"
+      buttonStyle={CustomButtonStyle.customButton}
+      handleLogin={handleLogin}
+      values={values}>
       <Text style={styles.formHeader}>Sign up</Text>
       <InputForm
         label="Name"
@@ -31,12 +36,6 @@ export const SignUpFields = ({formHook, handleLogin, values}) => {
         />
         <TermsCheck title="Subscribe for  select  product updates" />
       </View>
-      <Button
-        disabled={formHook.form.submit}
-        title="Sign up"
-        buttonStyle={CustomButtonStyle.customButton}
-        onPress={() => handleLogin(values.email.value, values.password.value)}
-      />
-    </View>
+    </Fields>
   );
 };
