@@ -24,9 +24,7 @@ const LoginScreen = () => {
         link: 'Sign up',
       }}
       formHook={{form, setForm}}
-      form={form}
       handleLogin={HandleGoogleSign(auth, 'login')}
-      values={form}
       onGoogleButtonPress={onGoogleButtonPress}
     />
   );

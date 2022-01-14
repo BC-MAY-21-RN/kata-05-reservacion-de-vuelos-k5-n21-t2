@@ -27,7 +27,6 @@ const SignForm = ({
   toSectionMessage,
   formHook,
   handleLogin,
-  values,
   onGoogleButtonPress,
 }) => {
   const [isVisible, setIsVisible] = useState(false);
@@ -37,7 +36,7 @@ const SignForm = ({
         type={type}
         formHook={formHook}
         handleLogin={handleLogin}
-        values={values}
+        values={formHook.form}
       />
       <AlternatedSignIn
         formHook={formHook}
