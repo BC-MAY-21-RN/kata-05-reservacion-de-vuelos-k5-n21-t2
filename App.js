@@ -29,7 +29,7 @@ const App = () => {
   return (
     <NavigationContainer>
       <Stack.Navigator
-        initialRouteName="registerscreen"
+        initialRouteName="loginscreen"
         screenOptions={{headerShown: false}}>
         <Stack.Screen name="loginscreen" component={LoginScreen} />
         <Stack.Screen name="registerscreen" component={RegisterScreen} />
