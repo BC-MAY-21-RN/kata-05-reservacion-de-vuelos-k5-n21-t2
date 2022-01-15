@@ -2,7 +2,6 @@ import React from 'react';
 import SignForm from '../components/organisms/SignForm';
 import useRegister from '../hooks/useRegister';
 import AuthStack from '../store/AuthStack';
-import HandleGoogleSign from '../utils/GoogleHandleSign';
 
 AuthStack.init();
 
@@ -19,7 +18,7 @@ const SignupScreen = ({navigation}) => {
         navigation: navigation,
       }}
       formHook={{form, setForm}}
-      handleLogin={HandleGoogleSign(AuthStack.auth, 'register')}
+      handleLogin={AuthStack.handleRegister()}
       onGoogleButtonPress={AuthStack.getGoogleButtonPress}
     />
   );

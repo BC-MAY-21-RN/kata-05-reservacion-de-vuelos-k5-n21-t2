@@ -2,7 +2,6 @@ import React, {useEffect} from 'react';
 import SignForm from '../components/organisms/SignForm';
 import useLogin from '../hooks/useLogin';
 import AuthStack from '../store/AuthStack';
-import HandleGoogleSign from '../utils/GoogleHandleSign';
 
 AuthStack.init();
 let mounted = false;
