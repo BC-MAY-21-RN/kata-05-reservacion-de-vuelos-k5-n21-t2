@@ -4,7 +4,7 @@ import styles from '../../styles/FlightsList';
 import flights from '../../utils/testflights'
 import FlightLocations from './FlightLocations';
 
-const FlightItem = ({item, passengersString}) => {
+const FlightItem = ({item}) => {
   return (
     <View style={styles.flightItem}>
       <FlightLocations from={item.from} to={item.to} />

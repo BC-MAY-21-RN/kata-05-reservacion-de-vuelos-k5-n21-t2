@@ -19,6 +19,8 @@ const LoginScreen = ({navigation}) => {
             routes: [{name: 'myflights'}],
           });
         }
+      } else {
+        mounted = false;
       }
     });
   }, []);

@@ -5,11 +5,7 @@ import styles from '../../styles/ActionButton';
 
 const ActionButton = ({onPress, iconName}) => {
   return (
-    <Pressable
-      onPress={() => {
-        onPress();
-      }}
-      style={styles.buttonContainer}>
+    <Pressable onPress={onPress} style={styles.buttonContainer}>
       <Icon style={styles.icon} name={iconName} type="ionicon" color="white" />
     </Pressable>
   );

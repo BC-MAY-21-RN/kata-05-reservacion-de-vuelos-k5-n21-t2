@@ -9,11 +9,11 @@ const styles = StyleSheet.create({
   },
   container: {
     flex: 1,
+    margin: Theme.Spacing.xxl,
   },
   headerContainer: {
     flex: 1,
     alignSelf: 'flex-start',
-    marginHorizontal: Theme.Spacing.xl,
   },
   submitContainer: {
     flex: 3,
@@ -21,7 +21,6 @@ const styles = StyleSheet.create({
     display: 'flex',
     justifyContent: 'flex-end',
     marginBottom: Theme.Spacing.xl,
-    marginHorizontal: Theme.Spacing.xl,
   },
   upperContainer: {
     flex: 1,

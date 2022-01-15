@@ -33,7 +33,10 @@ const MyFlightsScreen = ({route, navigation}) => {
   }, []);
   return (
     <View style={styles.loginScreenContainer}>
-      <ActionButton onPress={() => {}} iconName="add" />
+      <ActionButton
+        onPress={() => navigation.navigate('bookingstep1')}
+        iconName="add"
+      />
       <Text style={styles.topHeader}>My flights</Text>
       <FlightsList />
     </View>
