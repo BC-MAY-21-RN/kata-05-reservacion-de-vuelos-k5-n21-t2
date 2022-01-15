@@ -26,12 +26,10 @@ const AuthStack = {
     return Promise.all([auth().signOut(), GoogleSignin.signOut()]);
   },
   getGoogleButtonPress: () => {
-    return {
-      onGoogleButtonPress: async function onGoogleButtonPress() {
-        const {idToken} = await GoogleSignin.signIn();
-        const googleCredential = auth.GoogleAuthProvider.credential(idToken);
-        return auth().signInWithCredential(googleCredential);
-      },
+    return async function onGoogleButtonPress() {
+      const {idToken} = await GoogleSignin.signIn();
+      const googleCredential = auth.GoogleAuthProvider.credential(idToken);
+      return auth().signInWithCredential(googleCredential);
     };
   },
   handleLogin: () => {

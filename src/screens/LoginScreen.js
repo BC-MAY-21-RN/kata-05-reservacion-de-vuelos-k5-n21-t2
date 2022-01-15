@@ -37,7 +37,7 @@ const LoginScreen = ({navigation}) => {
         }}
         formHook={{form, setForm}}
         handleLogin={AuthStack.handleLogin()}
-        onGoogleButtonPress={AuthStack.getGoogleButtonPress}
+        onGoogleButtonPress={AuthStack.getGoogleButtonPress()}
       />
     </>
   );
