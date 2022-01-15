@@ -48,6 +48,8 @@ const SignForm = ({
       <ToSectionMessage
         text={toSectionMessage.text}
         link={toSectionMessage.link}
+        nextSection={toSectionMessage.nextSection}
+        navigation={toSectionMessage.navigation}
       />
       <Overlay
         overlayStyle={CustomOverlayStyle.ModalContainer}

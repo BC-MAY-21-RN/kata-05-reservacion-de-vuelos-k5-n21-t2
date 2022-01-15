@@ -7,8 +7,9 @@ import {AuthStack} from '../store/AuthStack';
 import HandleGoogleSign from '../utils/GoogleHandleSign';
 
 const onGoogleButtonPress = AuthStack(auth, GoogleSignin);
+const loginValues = {auth: auth, GoogleSignin: GoogleSignin};
 
-const SignupScreen = () => {
+const SignupScreen = ({navigation}) => {
   const [form, setForm] = useRegister();
 
   return (
@@ -17,9 +18,11 @@ const SignupScreen = () => {
       toSectionMessage={{
         text: 'Already have an account?',
         link: 'Sign in',
+        nextSection: 'loginscreen',
+        navigation: navigation,
       }}
       formHook={{form, setForm}}
-      handleLogin={HandleGoogleSign(auth, 'register')}
+      handleLogin={HandleGoogleSign(loginValues, 'register')}
       onGoogleButtonPress={onGoogleButtonPress}
     />
   );

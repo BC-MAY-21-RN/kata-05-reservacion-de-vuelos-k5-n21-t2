@@ -14,6 +14,6 @@ export const AuthStack = (auth, GoogleSignin) => {
 };
 
 export const AuthLogOut = (auth, GoogleSignin) => {
-  auth().signOut();
-  GoogleSignin.signOut();
+  auth().signOut().then().catch();
+  GoogleSignin.signOut().then().catch();
 };

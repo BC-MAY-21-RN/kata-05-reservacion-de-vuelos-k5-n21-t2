@@ -11,8 +11,6 @@ const styles = StyleSheet.create({
   flightItem: {
   },
   container: {
-    margin: Theme.Spacing.xl,
-    paddingBottom: Theme.Spacing.xl,
   },
   date: {
     color: 'black',
