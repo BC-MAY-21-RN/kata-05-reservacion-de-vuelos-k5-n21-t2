@@ -1,41 +1,27 @@
 import React, {useEffect} from 'react';
-import {Button} from 'react-native';
 import SignForm from '../components/organisms/SignForm';
 import useLogin from '../hooks/useLogin';
-import auth from '@react-native-firebase/auth';
-import {GoogleSignin} from '@react-native-google-signin/google-signin';
-import {AuthStack} from '../store/AuthStack';
+import AuthStack from '../store/AuthStack';
 import HandleGoogleSign from '../utils/GoogleHandleSign';
-import PersistentStorage from '../utils/PersistentStorage';
 
-const onGoogleButtonPress = AuthStack(auth, GoogleSignin);
-const loginValues = {auth: auth, GoogleSignin: GoogleSignin};
-
-const checkAutoSignIn = async navigation => {
-  const r = await PersistentStorage.get('uid');
-  if (r !== null && r !== undefined) {
-    navigation.reset({
-      index: 0,
-      routes: [
-        {
-          name: 'myflights',
-          params: {loginValues},
-        },
-      ],
-    });
-  }
-};
+AuthStack.init();
+let mounted = false;
 
 const LoginScreen = ({navigation}) => {
   const [form, setForm] = useLogin();
-  auth().onAuthStateChanged(user => {
-    if (user) {
-      PersistentStorage.set('uid', user.uid);
-    }
-  });
 
   useEffect(() => {
-    //checkAutoSignIn(navigation);
+    AuthStack.auth().onAuthStateChanged(async user => {
+      if (user) {
+        if (!mounted) {
+          mounted = true;
+          navigation.reset({
+            index: 0,
+            routes: [{name: 'myflights'}],
+          });
+        }
+      }
+    });
   }, []);
 
   return (
@@ -49,8 +35,8 @@ const LoginScreen = ({navigation}) => {
           navigation: navigation,
         }}
         formHook={{form, setForm}}
-        handleLogin={HandleGoogleSign(loginValues, 'login', navigation)}
-        onGoogleButtonPress={onGoogleButtonPress}
+        handleLogin={AuthStack.handleLogin()}
+        onGoogleButtonPress={AuthStack.getGoogleButtonPress}
       />
     </>
   );

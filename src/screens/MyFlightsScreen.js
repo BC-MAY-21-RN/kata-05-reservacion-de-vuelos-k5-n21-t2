@@ -1,28 +1,36 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import {View, Text} from 'react-native';
 import {styles} from '../styles/MyFlightsScreen';
 import FlightsList from '../components/molecules/FlightsList';
 import ActionButton from '../components/atoms/ActionButton';
 import GenericNavbarButtons from '../components/atoms/GenericNavbarButtons';
-import PersistentStorage from '../utils/PersistentStorage';
-import {AuthLogOut} from '../store/AuthStack';
+import AuthStack from '../store/AuthStack';
 
-const MyFlightsScreen = ({route, navigation}) => {
-  const {auth, GoogleSignin} = route.params.loginValues;
-  // console.log(auth);
+AuthStack.init();
+
+const SetNavButtons = async navigation => {
   navigation.setOptions({
     headerRight: () => {
       return (
         <GenericNavbarButtons
           onPress={async () => {
-            AuthLogOut(auth, GoogleSignin);
-            await PersistentStorage.remove('uid');
-            navigation.navigate('loginscreen');
+            AuthStack.logOut().then(() => {
+              navigation.reset({
+                index: 0,
+                routes: [{name: 'loginscreen'}],
+              });
+            });
           }}
         />
       );
     },
   });
+};
+
+const MyFlightsScreen = ({route, navigation}) => {
+  useEffect(() => {
+    SetNavButtons(navigation);
+  }, []);
   return (
     <View style={styles.loginScreenContainer}>
       <ActionButton onPress={() => {}} iconName="add" />

@@ -8,25 +8,22 @@ const handleFoo = (auth, type, email, password) => {
   }
 };
 
-const handleThen = (promise, navigation, loginValues) => {
+const handleThen = (promise, navigation) => {
   promise
     .then(() => {
-      // navigation.reset({
-      //   index: 0,
-      //   name: 'myflights',
-      //   params: {loginValues},
-      // }).catch(error => console.log(error));
-      Alert.alert('VErgaAAAAAAAA', 'Invalid email or password.');
+      navigation.reset({
+        index: 0,
+        routes: [{name: 'myflights'}],
+      });
     })
     .catch(error => {
-      // console.log(error);
       Alert.alert('Error', 'Invalid email or password.');
     });
 };
 
-const HandleGoogleSign = (loginValues, type, navigation) => {
+const HandleGoogleSign = (auth, type, navigation) => {
   return (email, password) => {
-    handleThen(handleFoo(loginValues.auth, type, email, password), navigation, loginValues);
+    handleThen(handleFoo(auth, type, email, password), navigation);
   };
 };
 
