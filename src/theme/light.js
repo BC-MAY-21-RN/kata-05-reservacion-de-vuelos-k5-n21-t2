@@ -15,7 +15,8 @@ const Theme = StyleSheet.create({
     m: 10,
     l: 15,
     xl: 20,
-    xxxl: 25,
+    xxl: 25,
+    xxxl: 30,
   },
   Font: {
     xxxl: 32,

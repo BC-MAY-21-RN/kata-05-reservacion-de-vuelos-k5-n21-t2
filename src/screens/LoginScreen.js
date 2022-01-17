@@ -1,32 +1,45 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import SignForm from '../components/organisms/SignForm';
 import useLogin from '../hooks/useLogin';
-import auth from '@react-native-firebase/auth';
-import {GoogleSignin} from '@react-native-google-signin/google-signin';
-import {AuthStack} from '../store/AuthStack';
-import HandleGoogleSign from '../utils/GoogleHandleSign';
+import AuthStack from '../store/AuthStack';
 
-const onGoogleButtonPress = AuthStack(auth, GoogleSignin);
+AuthStack.init();
+let mounted = false;
 
-const LoginScreen = () => {
+const LoginScreen = ({navigation}) => {
   const [form, setForm] = useLogin();
-  auth().onAuthStateChanged(user => {
-    if (user) {
-      console.log(user);
-    }
-  });
+
+  useEffect(() => {
+    AuthStack.auth().onAuthStateChanged(async user => {
+      if (user) {
+        if (!mounted) {
+          mounted = true;
+          navigation.reset({
+            index: 0,
+            routes: [{name: 'myflights'}],
+          });
+        }
+      } else {
+        mounted = false;
+      }
+    });
+  }, []);
 
   return (
-    <SignForm
-      type="signin"
-      toSectionMessage={{
-        text: 'Not have an account?',
-        link: 'Sign up',
-      }}
-      formHook={{form, setForm}}
-      handleLogin={HandleGoogleSign(auth, 'login')}
-      onGoogleButtonPress={onGoogleButtonPress}
-    />
+    <>
+      <SignForm
+        type="signin"
+        toSectionMessage={{
+          text: 'Not have an account?',
+          link: 'Sign up',
+          nextSection: 'registerscreen',
+          navigation: navigation,
+        }}
+        formHook={{form, setForm}}
+        handleLogin={AuthStack.handleLogin()}
+        onGoogleButtonPress={AuthStack.getGoogleButtonPress()}
+      />
+    </>
   );
 };
 

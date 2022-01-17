@@ -98,7 +98,7 @@ export const InputForm = ({password, label, footer, validation, formHook}) => {
         ) : null}
       </View>
       <Input
-        secureTextEntry={showText}
+        secureTextEntry={password !== undefined ? showText : false}
         onChangeText={text => {
           setTextField(text);
           TriggerValidation(text, setError, validation);

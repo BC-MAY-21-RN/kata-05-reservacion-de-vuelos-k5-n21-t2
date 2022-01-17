@@ -1,14 +1,11 @@
 import React from 'react';
 import SignForm from '../components/organisms/SignForm';
 import useRegister from '../hooks/useRegister';
-import auth from '@react-native-firebase/auth';
-import {GoogleSignin} from '@react-native-google-signin/google-signin';
-import {AuthStack} from '../store/AuthStack';
-import HandleGoogleSign from '../utils/GoogleHandleSign';
+import AuthStack from '../store/AuthStack';
 
-const onGoogleButtonPress = AuthStack(auth, GoogleSignin);
+AuthStack.init();
 
-const SignupScreen = () => {
+const SignupScreen = ({navigation}) => {
   const [form, setForm] = useRegister();
 
   return (
@@ -17,10 +14,12 @@ const SignupScreen = () => {
       toSectionMessage={{
         text: 'Already have an account?',
         link: 'Sign in',
+        nextSection: 'loginscreen',
+        navigation: navigation,
       }}
       formHook={{form, setForm}}
-      handleLogin={HandleGoogleSign(auth, 'register')}
-      onGoogleButtonPress={onGoogleButtonPress}
+      handleLogin={AuthStack.handleRegister()}
+      onGoogleButtonPress={AuthStack.getGoogleButtonPress()}
     />
   );
 };
