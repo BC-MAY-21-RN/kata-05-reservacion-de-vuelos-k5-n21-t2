@@ -28,7 +28,6 @@ const doSaveOnFirebase = ({date, from, to, passengers}, navigation) => {
 };
 
 const BookingStep5 = ({route, navigation}) => {
-  console.log(route.params);
   return (
     <BookingWrapper data={route.params}>
       <View style={styles.headerContainer}>
