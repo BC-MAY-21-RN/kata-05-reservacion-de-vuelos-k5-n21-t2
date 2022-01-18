@@ -19,7 +19,6 @@ const doSaveOnFirebase = ({date, from, to, passengers}, navigation) => {
       passengers: passengers,
     })
     .then(() => {
-      Alert.alert('Done', 'Added sucesfully');
       navigation.reset({
         index: 0,
         routes: [{name: 'myflights'}],

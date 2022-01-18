@@ -1,7 +1,6 @@
 import React from 'react';
 import {View, Text, FlatList} from 'react-native';
 import styles from '../../styles/FlightsList';
-// import flights from '../../utils/testflights'
 import FlightLocations from './FlightLocations';
 
 const FlightItem = ({item}) => {
@@ -28,11 +27,16 @@ const FlightsList = ({flights}) => {
   };
 
   return (
-    <FlatList
-      data={flights}
-      renderItem={renderItem}
-      keyExtractor={item => item.id}
-    />
+    <>
+      {flights.length > 0 ? null : (
+        <Text style={styles.empty}>No se encontraron vuelos</Text>
+      )}
+      <FlatList
+        data={flights}
+        renderItem={renderItem}
+        keyExtractor={item => item.id}
+      />
+    </>
   );
 };
 

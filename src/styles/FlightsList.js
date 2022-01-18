@@ -37,6 +37,9 @@ const styles = StyleSheet.create({
     color: Theme.Colors.primaryColor,
     fontSize: Theme.Font.xl,
   },
+  empty: {
+    fontSize: Theme.Font.m,
+  },
 });
 
 export default styles;

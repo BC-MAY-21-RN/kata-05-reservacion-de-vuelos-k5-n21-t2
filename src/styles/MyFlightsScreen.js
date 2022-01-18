@@ -8,7 +8,8 @@ export const styles = StyleSheet.create({
     fontWeight: 'bold',
     marginBottom: Theme.Spacing.l,
   },
-  loginScreenContainer: {
+  myFlightsScreenContainer: {
     padding: Theme.Spacing.l,
+    flex: 1,
   },
 });

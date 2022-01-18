@@ -59,7 +59,7 @@ const SetNavButtons = async navigation => {
 };
 
 const MyFlightsScreen = ({route, navigation}) => {
-  const [flights, setFlights] = useState();
+  const [flights, setFlights] = useState([]);
 
   useEffect(() => {
     SetNavButtons(navigation);
@@ -67,7 +67,7 @@ const MyFlightsScreen = ({route, navigation}) => {
   }, []);
 
   return (
-    <View style={styles.loginScreenContainer}>
+    <View style={styles.myFlightsScreenContainer}>
       <ActionButton
         onPress={() => navigation.navigate('bookingstep1')}
         iconName="add"
