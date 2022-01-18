@@ -12,6 +12,11 @@ const styles = StyleSheet.create({
   },
   container: {
   },
+  footerRow: {
+    display: 'flex',
+    justifyContent: 'space-between',
+    flexDirection: 'row',
+  },
   date: {
     color: 'black',
     fontSize: Theme.Font.m,

@@ -12,7 +12,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     borderRadius: 50,
     position: 'absolute',
-    bottom: 70,
+    bottom: 20,
     alignSelf: 'center',
     zIndex: 2,
   },

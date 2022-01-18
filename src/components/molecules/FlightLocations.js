@@ -29,7 +29,7 @@ const NiceDate = date => {
   return result;
 };
 
-const FlightLocations = ({from, to, date}) => {
+const FlightLocations = ({from, to, date, passengers}) => {
   return (
     <View style={styles.container}>
       <View style={styles.flightItem}>
@@ -47,9 +47,14 @@ const FlightLocations = ({from, to, date}) => {
           </Text>
         </View>
       </View>
-      <Text style={styles.date}>
-        {date !== undefined ? NiceDate(date) : null}
-      </Text>
+      <View style={styles.footerRow}>
+        <Text style={styles.date}>
+          {date !== undefined ? NiceDate(date) : null}
+        </Text>
+        {passengers !== undefined ? (
+          <Text style={styles.date}>{passengers} passengers</Text>
+        ) : null}
+      </View>
     </View>
   );
 };

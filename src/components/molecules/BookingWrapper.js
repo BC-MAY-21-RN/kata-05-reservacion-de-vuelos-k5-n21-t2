@@ -13,6 +13,7 @@ const BookingWrapper = ({children, data}) => {
         from={{shortname: fromRow.countryCode, longname: fromRow.name}}
         to={{shortname: toRow.countryCode, longname: toRow.name}}
         date={data.date}
+        passengers={data.passengers}
       />
       {children}
     </View>
