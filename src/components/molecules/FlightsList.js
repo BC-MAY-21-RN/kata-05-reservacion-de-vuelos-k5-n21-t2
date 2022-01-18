@@ -1,7 +1,7 @@
 import React from 'react';
 import {View, Text, FlatList} from 'react-native';
 import styles from '../../styles/FlightsList';
-import flights from '../../utils/testflights'
+// import flights from '../../utils/testflights'
 import FlightLocations from './FlightLocations';
 
 const FlightItem = ({item}) => {
@@ -16,9 +16,9 @@ const FlightItem = ({item}) => {
   );
 };
 
-const FlightsList = ({iconColor, iconSize}) => {
+const FlightsList = ({flights}) => {
   const renderItem = ({item}) => {
-    let passengersString = item.passengers + ' passeger';
+    let passengersString = item.passengers + ' passenger';
     if (item.passengers !== '1') {
       passengersString += 's';
     }
