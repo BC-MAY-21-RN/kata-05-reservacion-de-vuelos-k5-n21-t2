@@ -18,6 +18,7 @@ const SignupScreen = ({navigation}) => {
         navigation: navigation,
       }}
       formHook={{form, setForm}}
+      AuthStack={AuthStack}
       handleLogin={AuthStack.handleRegister()}
       onGoogleButtonPress={AuthStack.getGoogleButtonPress()}
     />

@@ -61,7 +61,6 @@ const AuthStack = {
     );
   },
   handleRegister: () => {
-    setSignLoading({loading: true, done: false});
     return signDecorator(
       (email, password) =>
         auth().createUserWithEmailAndPassword(email, password),
