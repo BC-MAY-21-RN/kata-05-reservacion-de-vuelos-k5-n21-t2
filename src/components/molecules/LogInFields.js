@@ -26,9 +26,6 @@ export const LogInFields = ({formHook, handleLogin, values}) => {
           formHook={formHook}
         />
       </View>
-      <View style={styles.checkboxContainer}>
-        <TermsCheck title="Remember me" />
-      </View>
     </Fields>
   );
 };
