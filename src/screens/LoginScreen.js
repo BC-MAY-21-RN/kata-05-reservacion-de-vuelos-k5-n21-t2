@@ -10,20 +10,23 @@ const LoginScreen = ({navigation}) => {
   const [form, setForm] = useLogin();
 
   useEffect(() => {
-    AuthStack.auth().onAuthStateChanged(async user => {
+    let auth = AuthStack.auth().onAuthStateChanged(user => {
       if (user) {
         if (!mounted) {
           mounted = true;
-          navigation.reset({
-            index: 0,
-            routes: [{name: 'myflights'}],
-          });
+          setTimeout(() => {
+            navigation.reset({
+              index: 0,
+              routes: [{name: 'myflights'}],
+            });
+          }, 1100);
         }
       } else {
         mounted = false;
       }
     });
-  }, []);
+    return auth;
+  }, [navigation]);
 
   return (
     <>
@@ -36,6 +39,7 @@ const LoginScreen = ({navigation}) => {
           navigation: navigation,
         }}
         formHook={{form, setForm}}
+        AuthStack={AuthStack}
         handleLogin={AuthStack.handleLogin()}
         onGoogleButtonPress={AuthStack.getGoogleButtonPress()}
       />
