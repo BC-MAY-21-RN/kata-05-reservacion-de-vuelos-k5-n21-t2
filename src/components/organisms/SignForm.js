@@ -1,10 +1,9 @@
 import React, {useState} from 'react';
-import {Text, ScrollView, ActivityIndicator} from 'react-native';
+import {ScrollView} from 'react-native';
 import {ToSectionMessage} from '../atoms';
 import {LogInFields, SignUpFields, AlternatedSignIn} from '../molecules';
-import {Overlay} from 'react-native-elements';
-import {styles, CustomOverlayStyle} from '../../styles';
-import Theme from '../../theme/light';
+import {styles} from '../../styles';
+import SignLoading from '../atoms/SignLoading';
 
 const SignFields = ({type, formHook, handleLogin, values}) => {
   return type === 'signin' ? (
@@ -28,8 +27,10 @@ const SignForm = ({
   formHook,
   handleLogin,
   onGoogleButtonPress,
+  AuthStack,
 }) => {
-  const [isVisible, setIsVisible] = useState(false);
+  const [signLoading, setSignLoading] = useState({loading: false, done: false});
+  AuthStack.setSignLoading(setSignLoading);
   return (
     <ScrollView style={styles.signScreenContainer}>
       <SignFields
@@ -40,8 +41,6 @@ const SignForm = ({
       />
       <AlternatedSignIn
         formHook={formHook}
-        isVisible={isVisible}
-        setIsVisible={setIsVisible}
         title={type === 'signup' ? 'Sign up with Google' : 'Log in with Google'}
         onGoogleButtonPress={onGoogleButtonPress}
       />
@@ -51,15 +50,7 @@ const SignForm = ({
         nextSection={toSectionMessage.nextSection}
         navigation={toSectionMessage.navigation}
       />
-      <Overlay
-        overlayStyle={CustomOverlayStyle.ModalContainer}
-        isVisible={isVisible}
-        onBackdropPress={() => setIsVisible(!isVisible)}>
-        <ActivityIndicator size={64} color="#5566dd" />
-        <Text color={Theme.Colors.primaryColor}>
-          {type === 'signup' ? 'Signin up...' : 'Loging...'}
-        </Text>
-      </Overlay>
+      <SignLoading state={signLoading} type={type} />
     </ScrollView>
   );
 };

@@ -1,7 +1,7 @@
 import React from 'react';
 import {View, Text} from 'react-native';
 import {styles, CustomButtonStyle} from '../../styles';
-import {InputForm, InputValidation, TermsCheck} from '../atoms';
+import {InputForm, InputValidation} from '../atoms';
 import {Fields} from './';
 
 export const LogInFields = ({formHook, handleLogin, values}) => {

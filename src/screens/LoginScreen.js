@@ -14,10 +14,12 @@ const LoginScreen = ({navigation}) => {
       if (user) {
         if (!mounted) {
           mounted = true;
-          navigation.reset({
-            index: 0,
-            routes: [{name: 'myflights'}],
-          });
+          setTimeout(() => {
+            navigation.reset({
+              index: 0,
+              routes: [{name: 'myflights'}],
+            });
+          }, 1100);
         }
       } else {
         mounted = false;
@@ -36,6 +38,7 @@ const LoginScreen = ({navigation}) => {
           navigation: navigation,
         }}
         formHook={{form, setForm}}
+        AuthStack={AuthStack}
         handleLogin={AuthStack.handleLogin()}
         onGoogleButtonPress={AuthStack.getGoogleButtonPress()}
       />
