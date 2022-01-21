@@ -10,7 +10,7 @@ const LoginScreen = ({navigation}) => {
   const [form, setForm] = useLogin();
 
   useEffect(() => {
-    AuthStack.auth().onAuthStateChanged(async user => {
+    let auth = AuthStack.auth().onAuthStateChanged(async user => {
       if (user) {
         if (!mounted) {
           mounted = true;
@@ -25,6 +25,7 @@ const LoginScreen = ({navigation}) => {
         mounted = false;
       }
     });
+    return auth;
   }, []);
 
   return (
