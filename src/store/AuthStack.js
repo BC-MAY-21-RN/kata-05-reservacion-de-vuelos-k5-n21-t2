@@ -2,42 +2,20 @@ import auth from '@react-native-firebase/auth';
 import {GoogleSignin} from '@react-native-google-signin/google-signin';
 import {Alert} from 'react-native';
 
-let setSignLoading = null;
-
-const handleThen = (promise, setSignLoading) => {
-  setSignLoading({loading: true, done: false});
-  promise
-    .then(() => {
-      setSignLoading({loading: true, done: true});
-      setTimeout(() => setSignLoading({loading: false, done: false}), 1000);
-    })
-    .catch(error => {
-      setSignLoading({loading: false, done: false});
-      switch (error.code) {
-        case 'auth/user-not-found':
-          Alert.alert('Error', 'Incorrect email nor password.');
-          break;
-        case 'auth/email-already-in-use':
-          Alert.alert('Error', 'Email already in use.');
-          break;
-        case 'auth/invalid-email':
-          Alert.alert('Error', 'Invalid email.');
-          break;
-      }
-    });
+const handleThen = promise => {
+  promise.catch(error => {
+    Alert.alert('Error', 'Invalid email or password.');
+  });
 };
 
-const signDecorator = (func, setSignLoading) => {
+const signDecorator = func => {
   return (email, password) => {
-    handleThen(func(email, password), setSignLoading);
+    handleThen(func(email, password));
   };
 };
 
 const AuthStack = {
   auth,
-  setSignLoading: value => {
-    setSignLoading = value;
-  },
   init: () => {
     GoogleSignin.configure({
       webClientId:
@@ -55,17 +33,13 @@ const AuthStack = {
     };
   },
   handleLogin: () => {
-    return signDecorator(
-      (email, password) => auth().signInWithEmailAndPassword(email, password),
-      setSignLoading,
+    return signDecorator((email, password) =>
+      auth().signInWithEmailAndPassword(email, password),
     );
   },
   handleRegister: () => {
-    setSignLoading({loading: true, done: false});
-    return signDecorator(
-      (email, password) =>
-        auth().createUserWithEmailAndPassword(email, password),
-      setSignLoading,
+    return signDecorator((email, password) =>
+      auth().createUserWithEmailAndPassword(email, password),
     );
   },
 };

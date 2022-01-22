@@ -7,13 +7,6 @@ export const styles = StyleSheet.create({
     padding: 20,
     flex: 1,
   },
-  loadingText: {
-    color: Theme.Colors.primaryColor,
-    fontWeight: 'bold',
-  },
-  loadingIcon: {
-    color: Theme.Colors.primaryColor,
-  },
   formHeader: {
     color: Colors.primaryColor,
     fontSize: 24,
